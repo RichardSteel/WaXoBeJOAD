@@ -3,7 +3,7 @@ html
 	head
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		title= title
-		link(rel='stylesheet', href='/bootstrap/css/cyborg.css')
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.superhero.css')
 		link(rel='stylesheet', href='/stylesheets/style.css')
 	body
 		.navbar.navbar-default.navbar-fixed-top
@@ -17,11 +17,11 @@ html
 				#navbar-main.navbar-collapse.collapse
 					ul.nav.navbar-nav
 						li
-							a(href='/info') JOAD Information
+							a(href='/info/') JOAD Information
 						li
-							a(href='/archer') Student Archer
+							a(href='/archer/') Student Archer
 						li
-							a(href='/coach') Coaches Area
+							a(href='/coach/') Coaches Area
 		.container
 			block content
 			
@@ -29,5 +29,5 @@ html
 				.row
 					.col-xs-12
 						small &copy; Richard Steel 2016
-		script(src='/javascripts/jquery-3.0.0.js')
+		script(src='/javascripts/jquery-1.12.4.min.js')
 		script(src='/bootstrap/js/bootstrap.min.js')

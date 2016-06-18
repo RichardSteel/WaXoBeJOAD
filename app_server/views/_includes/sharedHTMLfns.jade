@@ -1,0 +1,5 @@
+mixin outputRank(rank)
+	- for (var i = 1; i <= rank; i++)
+		span.glyphicon.glyphicon-star
+	-for (i = rank; i < 8; i++)
+		span.glyphicon.glyphicon-star-empty

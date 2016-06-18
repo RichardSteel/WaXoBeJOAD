@@ -4,9 +4,33 @@ block content
 	#banner.page-header
 		.row
 			.col-lg-6
-				h1 JOAD
-					small &nbsp;Junior Olympic Archery Development
+				h1= details.title
+					small &nbsp;#{details.title_long}
 	.row
-		.col-xs-12.col-sm-8
-			h4
-			p.lead WaXoBe hosts a JOAD program on a Saturday afternoon from October through to June
+		.col-xs-12.col-md-9
+			.row
+				.col-xs-12.col-sm-6
+					.panel.panel-primary
+						.panel-heading
+							h2.panel-title Who we are
+						.panel-body
+							h3
+								p.lead #{details.waxobe}
+								p.lead #{details.bloomfield}
+						.panel-heading
+							h2.panel-title Links
+						.panel-body
+							each link in links
+								.col-xs-12.list-group-item
+									h5
+										a(href="#{link.url}") #{link.name}
+				.col-xs-12.col-sm-6.location-map
+					.panel.panel-primary
+						.panel-heading
+							h2.panel-title WaXoBe Location
+						.panel-body
+							img.img-responsive.img-rounded(src='http://maps.googleapis.com/maps/api/staticmap?center=40.3988,-74.5447&zoom=14&size=400x300&sensor=false&markers=40.3988,-74.5447&scale=2')
+						.panel-heading
+							h2.panel-title Bloomfield Location
+						.panel-body
+							img.img-responsive.img-rounded(src='http://maps.googleapis.com/maps/api/staticmap?center=40.83631,-74.165544&zoom=14&size=400x300&sensor=false&markers=40.83631,-74.165544&scale=2')

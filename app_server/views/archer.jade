@@ -1,0 +1,48 @@
+extends layout
+
+include _includes/sharedHTMLfns
+
+script(src='../node_modules/jquery/dist/jquery.min.js')
+script(src='/bootstrap/js/bootstrap.min.js')
+
+block content
+	#banner.page-header
+		.row
+			.col-lg-6
+				h1 JOAD
+					small &nbsp;#{joad}
+	.row
+		.col-xs-12.col-sm-8
+			h4
+			p.lead #{title}
+	.row
+		.navbar.navbar-default.navbar-fixed-bottom
+		.container
+			.navbar-header
+				a.navbar-brand(href='/') Archer Informatiom
+					button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-amain')
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+				#navbar-amain.navbar-collapse.collapse
+					ul.nav.navbar-nav
+						each session in sessions
+							li
+								a(href='/#{session.location}/') #{session.title}
+
+			.col-xs-12.col-md-8
+				.accordion(class='panel-group', id='accordion', role='tablist', aria-multiselectable='true')
+					.panel.panel-default
+						each student in students
+							h4.panel-heading
+								a(role='button',
+								  data-toggle='collapse',
+								  data-parent='#accordion',
+								  href='#collapse#{student.id}',
+								  aria-expanded='true',
+								  aria-control='collapse#{student.id}') #{student.name}
+									span.glyphicon.glyphicon-chevron-down.pull-right
+							div(id='collapse#{student.id}').panel-body.collapse.out
+								.panel-body
+									small &nbsp;
+										+outputRank(student.joad_rank)

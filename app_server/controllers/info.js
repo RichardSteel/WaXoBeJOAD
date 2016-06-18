@@ -1,4 +1,4 @@
 /* GET home page */
 module.exports.archeryInfo = function(req,res,next) {
-	res.render('index', { title: 'JOAD Information' });
+	res.render('info', { title: 'JOAD Information' });
 };
