@@ -16,33 +16,70 @@ block content
 			h4
 			p.lead #{title}
 	.row
-		.navbar.navbar-default.navbar-fixed-bottom
-		.container
-			.navbar-header
-				a.navbar-brand(href='/') Archer Informatiom
-					button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-amain')
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-				#navbar-amain.navbar-collapse.collapse
-					ul.nav.navbar-nav
+		.col-xs-12.col-sm-8
+			.search-tabs-content
+				.col-xs-12
+					ul.nav.nav-tabs(role="tabs")
 						each session in sessions
-							li
-								a(href='/#{session.location}/') #{session.title}
-
-			.col-xs-12.col-md-8
-				.accordion(class='panel-group', id='accordion', role='tablist', aria-multiselectable='true')
-					.panel.panel-default
-						each student in students
-							h4.panel-heading
-								a(role='button',
-								  data-toggle='collapse',
-								  data-parent='#accordion',
-								  href='#collapse#{student.id}',
-								  aria-expanded='true',
-								  aria-control='collapse#{student.id}') #{student.name}
-									span.glyphicon.glyphicon-chevron-down.pull-right
-							div(id='collapse#{student.id}').panel-body.collapse.out
-								.panel-body
-									small &nbsp;
-										+outputRank(student.joad_rank)
+							if session.id == 1
+								li.active
+									a(href="#tab#{session.id}" role='tab' data-toggle='tab') #{session.title}
+							else
+								li
+									a(href="#tab#{session.id}" role='tab' data-toggle='tab') #{session.title}
+						br
+						br
+						.tab-content
+							each session in sessions
+								if session.id == 1
+									.tab-pane.active(id='tab#{session.id}')
+										p.list
+											.accordion(class='panel-group', id='accordion', role='tablist', aria-multiselectable='true')
+												.panel.panel-default
+													each student in students
+														if student.session == 1
+															h5.panel-heading
+																a(role='button',data-toggle='collapse',data-parent='#accordion',href='#collapse#{student.id}',aria-expanded='true',aria-control='collapse#{student.id}') #{student.name}
+																	span.glyphicon.glyphicon-chevron-down.pull-right
+															div(id='collapse#{student.id}').panel-body.collapse.out
+																.panel-body
+																	h4
+																		span.label.label-default #{student.style}
+																		&nbsp;
+																		span.label.label-default #{student.level}
+																		&nbsp;
+																		small &nbsp;
+																			+outputRank(student.joad_rank)
+																		br
+																		.table
+																			each score in student.scores
+																				.tr
+																					h4
+																						span.label.label-default #{score.date}
+																						span.label.label-info #{score.score}
+								else
+									.tab-pane(id='tab#{session.id}')
+										p.list
+											.accordion(class='panel-group', id='accordion#{session.id}', role='tablist', aria-multiselectable='true')
+												.panel.panel-default
+													each student in students
+														if student.session == session.id
+															h5.panel-heading
+																a(role='button',data-toggle='collapse',data-parent='#accordion#{session.id}',href='#collapse#{student.id}',aria-expanded='true',aria-control='collapse#{student.id}') #{student.name}
+																	span.glyphicon.glyphicon-chevron-down.pull-right
+															div(id='collapse#{student.id}').panel-body.collapse.out
+																.panel-body
+																	h4
+																		span.label.label-default #{student.style}
+																		&nbsp;
+																		span.label.label-default #{student.level}
+																		&nbsp;
+																		small &nbsp;
+																			+outputRank(student.joad_rank)
+																	br
+																	.table
+																		each score in student.scores
+																			.tr
+																				h4
+																					span.label.label-default #{score.date}
+																					span.label.label-info #{score.score}

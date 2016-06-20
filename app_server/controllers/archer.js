@@ -5,15 +5,15 @@ module.exports.studentInfo = function(req,res,next) {
 		title: 'Student archer information',
 		sessions: [
 			{
-				location: 'beginner1',
+				id: 1,
 				title: 'Beginner Session 1',
 				time: '3:30pm'
 			},{
-				location: 'beginner2',
+				id: 2,
 				title: 'Beginner Session 2',
 				time: '4:30pm'				
 			},{
-				location: 'advanced1',
+				id: 3,
 				title: 'Advanced Session',
 				time: '5:30pm'				
 			}
@@ -24,6 +24,7 @@ module.exports.studentInfo = function(req,res,next) {
 			level: 'Junior',
 			style: 'Recurve',
 			joad_rank: 7,
+			session: 3,
 			scores: [
 			{
 				date: '1/12/2016',
@@ -42,6 +43,7 @@ module.exports.studentInfo = function(req,res,next) {
 			level: 'Cadet',
 			style: 'Compound',
 			joad_rank: 5,
+			session: 1,
 			scores: [
 			{
 				date: '1/1/2015',
@@ -57,6 +59,7 @@ module.exports.studentInfo = function(req,res,next) {
 			level: 'Junior',
 			style: 'Recurve',
 			joad_rank: 8,
+			session: 2,
 			scores: [
 			{
 				date: '1/1/2015',
@@ -78,7 +81,94 @@ module.exports.studentInfo = function(req,res,next) {
 				score: 275
 			}
 			]
-			
+		},{
+			id: 4,
+			name: 'KC Chiu',
+			level: 'Junior',
+			style: 'Recurve',
+			joad_rank: 2,
+			session: 3,
+			scores: [
+			{
+				date: '1/1/2015',
+				score: 123
+			},{
+				date: '2/22/2015',
+				score: 245
+			},{
+				date: '2/23/2015',
+				score: 255
+			},{
+				date: '4/22/2015',
+				score: 260
+			}
+			]			
+		},{
+			id: 5,
+			name: 'John Nyberg',
+			level: 'Novice',
+			style: 'Freestyle',
+			joad_rank: 1,
+			session: 2,
+			scores: [
+			{
+				date: '1/1/2015',
+				score: 123
+			},{
+				date: '2/22/2015',
+				score: 245
+			},{
+				date: '2/23/2015',
+				score: 255
+			},{
+				date: '4/22/2015',
+				score: 260
+			}
+			]						
+		},{
+			id: 6,
+			name: 'Eddy Lam',
+			level: 'Very Old Senior',
+			style: 'Recurve',
+			joad_rank: 3,
+			session: 1,
+			scores: [
+			{
+				date: '1/1/2015',
+				score: 123
+			},{
+				date: '2/22/2015',
+				score: 245
+			},{
+				date: '2/23/2015',
+				score: 255
+			},{
+				date: '4/22/2015',
+				score: 260
+			}
+			]									
+		},{
+			id: 7,
+			name: 'Jim Collymore',
+			level: 'Master Senior',
+			style: 'Recurve',
+			joad_rank: 5,
+			session: 1,
+			scores: [
+			{
+				date: '1/1/2015',
+				score: 123
+			},{
+				date: '2/22/2015',
+				score: 245
+			},{
+				date: '2/23/2015',
+				score: 255
+			},{
+				date: '4/22/2015',
+				score: 260
+			}
+			]												
 		}
 		]
 	});
