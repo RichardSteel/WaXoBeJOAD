@@ -21,27 +21,36 @@ block content
 				.col-xs-12
 					ul.nav.nav-tabs(role="tabs")
 						each session in sessions
-							if session.id == 1
+							if session.sessionId == 1
 								li.active
-									a(href="#tab#{session.id}" role='tab' data-toggle='tab') #{session.title}
+									a(href="#tab#{session.sessionId}" role='tab' data-toggle='tab') #{session.sessionTitle}
 							else
 								li
-									a(href="#tab#{session.id}" role='tab' data-toggle='tab') #{session.title}
+									a(href="#tab#{session.sessionId}" role='tab' data-toggle='tab') #{session.sessionTitle}
 						br
 						br
 						.tab-content
 							each session in sessions
-								if session.id == 1
-									.tab-pane.active(id='tab#{session.id}')
+								if session.sessionId == 1
+									.tab-pane.active(id='tab#{session.sessionId}')
 										p.list
-											.accordion(class='panel-group', id='accordion', role='tablist', aria-multiselectable='true')
+											.accordion(class='panel-group',
+            											id='accordion',
+														role='tablist',
+														aria-multiselectable='true')
 												.panel.panel-default
 													each student in students
 														if student.session == 1
 															h5.panel-heading
-																a(role='button',data-toggle='collapse',data-parent='#accordion',href='#collapse#{student.id}',aria-expanded='true',aria-control='collapse#{student.id}') #{student.name}
+																a(role='button',
+																  data-toggle='collapse',
+																  data-parent='#accordion',
+																  href='#collapse#{student.lName}#{student.fName}',
+																  aria-expanded='true',
+																  aria-control='collapse#{student.lName}#{student.fName}'
+																) #{student.fName} #{student.lName}
 																	span.glyphicon.glyphicon-chevron-down.pull-right
-															div(id='collapse#{student.id}').panel-body.collapse.out
+															div(id='collapse#{student.lName}#{student.fName}').panel-body.collapse.out
 																.panel-body
 																	h4
 																		span.label.label-default #{student.style}
@@ -49,25 +58,36 @@ block content
 																		span.label.label-default #{student.level}
 																		&nbsp;
 																		small &nbsp;
-																			+outputRank(student.joad_rank)
+																			+outputRank(student.rating)
 																		br
 																		.table
-																			each score in student.scores
-																				.tr
-																					h4
-																						span.label.label-default #{score.date}
-																						span.label.label-info #{score.score}
+																			if student.shootScores
+																				each score in student.shootScores
+																					.tr
+																						h4
+																							span.label.label-default
+																								+formatDate(score.shootDate)
+																							span.label.label-info #{score.score}
 								else
-									.tab-pane(id='tab#{session.id}')
+									.tab-pane(id='tab#{session.sessionId}')
 										p.list
-											.accordion(class='panel-group', id='accordion#{session.id}', role='tablist', aria-multiselectable='true')
+											.accordion(class='panel-group',
+            											id='accordion#{session.sessionId}',
+														role='tablist',
+														aria-multiselectable='true')
 												.panel.panel-default
 													each student in students
-														if student.session == session.id
+														if student.session == session.sessionId
 															h5.panel-heading
-																a(role='button',data-toggle='collapse',data-parent='#accordion#{session.id}',href='#collapse#{student.id}',aria-expanded='true',aria-control='collapse#{student.id}') #{student.name}
+																a(role='button',
+																  data-toggle='collapse',
+																  data-parent='#accordion#{session.sessionId}',
+																  href='#collapse#{student.lName}#{student.fName}',
+																  aria-expanded='true',
+																  aria-control='collapse#{student.lName}#{student.fName}'
+																) #{student.fName} #{student.lName}
 																	span.glyphicon.glyphicon-chevron-down.pull-right
-															div(id='collapse#{student.id}').panel-body.collapse.out
+															div(id='collapse#{student.lName}#{student.fName}').panel-body.collapse.out
 																.panel-body
 																	h4
 																		span.label.label-default #{student.style}
@@ -75,11 +95,13 @@ block content
 																		span.label.label-default #{student.level}
 																		&nbsp;
 																		small &nbsp;
-																			+outputRank(student.joad_rank)
+																			+outputRank(student.rating)
 																	br
 																	.table
-																		each score in student.scores
-																			.tr
-																				h4
-																					span.label.label-default #{score.date}
-																					span.label.label-info #{score.score}
+																		if student.shootScores
+																			each score in student.shootScores
+																				.tr
+																					h4
+																						span.label.label-default
+																							+formatDate(score.shootDate)
+																						span.label.label-info #{score.score}

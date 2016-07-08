@@ -21,7 +21,11 @@ module.exports.landing = function(req,res,next) {
 		},{
 			name: 'USA Archery',
 			url: 'http://www.teamusa.org/USA-Archery/'
-		}]
+		},{
+			name: 'CNN',
+			url: 'http://www.cnn.com/'
+		}
+		]
 		}
 	);
 };

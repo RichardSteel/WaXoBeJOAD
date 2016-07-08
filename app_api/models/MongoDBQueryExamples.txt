@@ -1,0 +1,18 @@
+//Select queries
+db.students.find().pretty
+
+//Delete operations
+db.students.remove({})
+
+//Update
+db.students.update({"fName" : "Richard"}, { $set : { "dob" : new Date ("4/19/1968") } } )
+db.students.update({"fName" : "Richard"}, { $push : { "shootScore" :
+ { shootDate: new Date ("12/12/2012"),
+   shootScore: 245,
+   ShootDist: 18,
+   Target: 40
+ }
+ } } )
+
+//Load data from file
+mongo localhost/WaXoBeJOADDB setData.js

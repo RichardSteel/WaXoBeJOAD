@@ -4,6 +4,10 @@ mixin outputRank(rank)
 	-for (i = rank; i < 8; i++)
 		span.glyphicon.glyphicon-star-empty
 
+mixin formatDate(date)
+	-var output = date.substring(0,10)
+	=output
+
 mixin list-group(items)
 	ul.list-group
 	each item, index in items
