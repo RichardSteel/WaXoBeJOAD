@@ -1,0 +1,4 @@
+heroku.com
+heroku login
+git remote add heroku git@heroku.com:secret-ravine-23938.git
+git puah heroku HEAD:master

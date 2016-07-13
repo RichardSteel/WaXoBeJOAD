@@ -1,0 +1,14 @@
+
+db.students.insert({record})
+db.students.save({record})
+db.students.find({conditions}).pretty()
+db.students.find({"sessionId": { $lt: 3 }}) -- will find students with a sessionId less than 3
+db.students.find( { $or: [ { "sessionId": 1 }, { "sessionId" : 2 } ] } ) -- uses or to achieve same result
+//Update a record in students found via the conditions. Will set the field to a value.
+// multi can be used to update multiple records
+db.students.update({conditions}, {$set: {fields}}, {multi: true})
+// Remove will remove all records meeting the conditions unless justOne is set
+db.students.remove({conditions}, {justOne: true})
+db.students.remove({}) -- will remove all students
+db.students.drop() -- will drop the entire collection including any indexes
+

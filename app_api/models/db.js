@@ -5,7 +5,8 @@ var gracefulShutdown;
 //console.log ("MONGOLAB_URI is " + process.env.MONGOLAB_URI);
 
 //var dbURI = 'mongodb://localhost/JOADDB';
-var dbURI = 'mongodb://localhost/WaXoBeJOADDB';
+var dbURI = 'mongodb://localhost/WaXoBeJOAD';
+//var dbURI = 'mongodb://localhost/WaXoBeJOADDB';
 //var dbURI = 'mongodb://Richard:Joe_1990@ds061355.mlab.com:61355/heroku_vblbgpbq';
 
 if (process.env.NODE_ENV === 'production') {
