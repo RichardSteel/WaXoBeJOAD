@@ -13,17 +13,14 @@ module.exports.landing = function(req,res,next) {
 			name: 'WaXoBe',
 			url: 'http://www.waxobe.com/'
 		},{
-			name: 'LAS',
+			name: 'Lancaster Archery',
 			url: 'http://www.lancasterarchery.com/'
 		},{
-			name: 'FaceBook',
+			name: 'WaXoBe JOAD on FaceBook',
 			url: 'https://www.facebook.com/groups/WaXoBeJOAD/'
 		},{
 			name: 'USA Archery',
 			url: 'http://www.teamusa.org/USA-Archery/'
-		},{
-			name: 'CNN',
-			url: 'http://www.cnn.com/'
 		}
 		]
 		}
