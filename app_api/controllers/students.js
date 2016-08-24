@@ -6,6 +6,7 @@ var sendJsonResponse = function(res, status, content) {
 	res.json(content);
 };
 
+//API will get a single student by ID. Not tested yet!!!
 module.exports.getOneStudent = function (req, res) {
 	if (req.params && req.params.studentId) {
 		var id = req.params.studentId;
@@ -31,7 +32,7 @@ module.exports.getOneStudent = function (req, res) {
 };
 
 //API to get all students in alphabetical order by lastname and then firstname
-module.exports.getAllStudents = function (req, res, next) {	
+module.exports.getAllStudents = function (req, res, next) {
 	Student
 		.find()
 		.sort({lName:1,fName:1})
