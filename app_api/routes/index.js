@@ -1,17 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var ctrlStudents = require('../controllers/students');
-var ctrlSessions = require('../controllers/sessions');
+//var ctrlArcher = require('../controllers/archer');
+var ctrlSession = require('../controllers/sessions');
+var ctrlStudent = require('../controllers/students');
+var ctrlCoach = require('../controllers/coaches');
+var ctrlHome = require('../controllers/home');
+var ctrlInfo = require('../controllers/info');
+var ctrlSignUp = require('../controllers/signup');
+var ctrlEquipment = require('../controllers/equipment');
 
-// students
-//Student get methods.
-//Get all students
-router.get('/students', ctrlStudents.getAllStudents);
-//Get a specific student by id or name
-router.get('/students/:studentId', ctrlStudents.getOneStudent);
-
-// sessions
-//Basic API to get the sessions
-router.get('/sessions', ctrlSessions.getAllSessions);
+/* GET home page. */
+router.get('/sessions', ctrlSession.getAllSessions);
+router.get('/students', ctrlStudent.getAllStudents);
+//router.get('/coach', ctrlCoach.coachLogin);
+router.get('/', ctrlHome.landing);
+router.get('/info', ctrlInfo.archeryInfo);
+router.post('/signin', ctrlSignUp.coachArea);
+router.get('/equipmentList', ctrlEquipment.equipmentList);
 
 module.exports = router;
