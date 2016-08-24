@@ -1,21 +1,18 @@
 var mongoose = require( 'mongoose' );
 var gracefulShutdown;
 
-//console.log ("NODE_ENV is " + process.env.NODE_ENV);
-//console.log ("MONGOLAB_URI is " + process.env.MONGOLAB_URI);
+console.log ("NODE_ENV is " + process.env.NODE_ENV);
+console.log ("MONGOLAB_URI is " + process.env.MONGOLAB_URI);
 
-//var dbURI = 'mongodb://localhost/JOADDB';
 var dbURI = 'mongodb://localhost/WaXoBeJOAD';
-//var dbURI = 'mongodb://localhost/WaXoBeJOADDB';
 //var dbURI = 'mongodb://Richard:Joe_1990@ds061355.mlab.com:61355/heroku_vblbgpbq';
+//var dbURI = 'mongodb://Richard:Joe-90@ds145245.mlab.com:45245/waxobejoad';
 
 if (process.env.NODE_ENV === 'production') {
 	
 	dbURI = process.env.MONGOLAB_URI;
 }
 mongoose.connect(dbURI);
-
-//mongodb://Richard:Joe_1990@ds061355.mlab.com:61355/heroku_vblbgpbq
 
 var readline = require ("readline");
 if (process.platform === "win32") {
@@ -69,3 +66,5 @@ process.on('SIGTERM', function () {
 
 require('./students');
 require('./sessions');
+require('./coaches');
+require('./equipment');

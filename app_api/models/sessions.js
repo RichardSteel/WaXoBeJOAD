@@ -7,8 +7,7 @@ var sessionSchema = new mongoose.Schema({
 	sessionStart: Number,
 	sessionDurn: Number,
 	sessionDOW: { type: String,
-                  enum: ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-				  default: 'Saturday'
+                  enum: ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 				}
 });
 
