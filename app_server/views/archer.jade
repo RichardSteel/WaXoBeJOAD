@@ -35,28 +35,22 @@ block content
 									.tab-pane.active(id='tab#{session.sessionId}')
 										p.list
 											.accordion(class='panel-group',
-            											id='accordion',
+														id='accordion',
 														role='tablist',
 														aria-multiselectable='true')
 												.panel.panel-default
 													each student in students
 														if student.session == 1
 															h5.panel-heading
-																a(role='button',
-																  data-toggle='collapse',
-																  data-parent='#accordion',
-																  href='#collapse#{student.lName}#{student.fName}',
-																  aria-expanded='true',
-																  aria-control='collapse#{student.lName}#{student.fName}'
-																) #{student.fName} #{student.lName}
+																a(role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse#{student.lName}#{student.fName}' aria-expanded='true' aria-control='collapse#{student.lName}#{student.fName}') #{student.fName} #{student.lName}
 																	span.glyphicon.glyphicon-chevron-down.pull-right
 															div(id='collapse#{student.lName}#{student.fName}').panel-body.collapse.out
 																.panel-body
 																	h4
 																		span.label.label-default #{student.style}
-																		&nbsp;
+																			|&nbsp;
 																		span.label.label-default #{student.level}
-																		&nbsp;
+																			|&nbsp;
 																		small &nbsp;
 																			+outputRank(student.rating)
 																		br
@@ -68,32 +62,56 @@ block content
 																							span.label.label-default
 																								+formatDate(score.shootDate)
 																							span.label.label-info #{score.score}
+								else if session.sessionId == 99
+									.tab-pane(id='tab#{session.sessionId}')
+										p.list
+											.accordion(class='panel-group',
+														id='accordion#{session.sessionId}',
+														role='tablist',
+														aria-multiselectable='true')
+												.panel.panel-default
+													each student in students
+														h5.panel-heading
+															a(role='button' data-toggle='collapse' data-parent='#accordion#{session.sessionId}' href='#collapse#{student.lName}#{student.fName}' aria-expanded='true' aria-control='collapse#{student.lName}#{student.fName}') #{student.fName} #{student.lName}
+																span.glyphicon.glyphicon-chevron-down.pull-right
+														div(id='collapse#{student.lName}#{student.fName}').panel-body.collapse.out
+															.panel-body
+																h4
+																	span.label.label-default #{student.style}
+																		|&nbsp;
+																	span.label.label-default #{student.level}
+																		|&nbsp;
+																	small &nbsp;
+																		+outputRank(student.rating)
+																br
+																.table
+																	if student.shootScores
+																		each score in student.shootScores
+																			.tr
+																				h4
+																					span.label.label-default
+																						+formatDate(score.shootDate)
+																					span.label.label-info #{score.score}
 								else
 									.tab-pane(id='tab#{session.sessionId}')
 										p.list
 											.accordion(class='panel-group',
-            											id='accordion#{session.sessionId}',
+														id='accordion#{session.sessionId}',
 														role='tablist',
 														aria-multiselectable='true')
 												.panel.panel-default
 													each student in students
 														if student.session == session.sessionId
 															h5.panel-heading
-																a(role='button',
-																  data-toggle='collapse',
-																  data-parent='#accordion#{session.sessionId}',
-																  href='#collapse#{student.lName}#{student.fName}',
-																  aria-expanded='true',
-																  aria-control='collapse#{student.lName}#{student.fName}'
-																) #{student.fName} #{student.lName}
+																a(role='button' data-toggle='collapse' data-parent='#accordion#{session.sessionId}' href='#collapse#{student.lName}#{student.fName}' aria-expanded='true' aria-control='collapse#{student.lName}#{student.fName}') #{student.fName} #{student.lName}
 																	span.glyphicon.glyphicon-chevron-down.pull-right
 															div(id='collapse#{student.lName}#{student.fName}').panel-body.collapse.out
 																.panel-body
 																	h4
 																		span.label.label-default #{student.style}
-																		&nbsp;
+																			|&nbsp;
 																		span.label.label-default #{student.level}
-																		&nbsp;
+																			|&nbsp;
 																		small &nbsp;
 																			+outputRank(student.rating)
 																	br

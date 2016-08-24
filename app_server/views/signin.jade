@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	#banner.page-header
+		.row
+			.col-lg-6
+				h2 JOAD
+					small &nbsp;Junior Olympic Archery Development
+	.row
+		.col-xs-12.col-sm-8
+			h4
+			p.lead #{title}
+	
+	.navbar.navbar-default
+		.container
+			.navbar-header
+				a.navbar-brand(href='/coachStudent/') Student Entry
+				button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+			#navbar-main.navbar-collapse.collapse
+				ul.nav.navbar-nav
+					li
+						a(href='/coachSession/') Session Modify
+					li
+						a(href='/coachEquip/') Equipment Entry
+					li
+						a(href='/coachNotice/') Notice Board

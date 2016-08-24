@@ -1,6 +1,15 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+	#banner.page-header
+		.row
+			.col-sm-12.col-lg-8
+				h2 JOAD
+					small &nbsp;Junior Olympic Archery Development
+	.row
+		.container
+			.row
+				.col-sm-6.col-md-4.col-md-offset-4
+					ul
+						li!= message
+

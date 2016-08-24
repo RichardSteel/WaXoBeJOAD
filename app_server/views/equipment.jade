@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	#banner.page-header
+		.row
+			.col-lg-6
+				h1 JOAD
+					small &nbsp;#{joad}
+	.row
+		.col-xs-12.col-sm-8
+			h4
+			p.lead #{title}
+	div
+		table.table.table-bordered(class="table-hover")
+			thead
+				tr
+					th Item
+					th Category
+					th Style
+					th Level
+					th Price
+			each item in gear
+				tr
+					td(style='width: 25%')
+						a(href="#{item.url}") #{item.name}
+					td #{item.category}
+					td #{item.style}
+					td #{item.level}
+					td #{item.price}

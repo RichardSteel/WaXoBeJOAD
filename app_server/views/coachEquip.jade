@@ -1,0 +1,57 @@
+extends layout
+
+block content
+	#banner.page-header
+		.row
+			.col-lg-6
+				h1 JOAD
+					small &nbsp;#{joad}
+	.row
+		.col-xs-12.col-sm-8
+			h4
+			p.lead #{title}
+	.row
+		.col-xs-12.col-md-6
+			form.form-horizontal(action="/coachEquip", method="get", role="form")
+				.form-group
+					label.col-xs-10.col-sm-2.control-label(for="name") Item Name
+					.col-xs-12.col-sm-6
+						input#name.form-control(name="name")
+				.form-group
+					label.col-xs-10.col-sm-2.control-label(for="url") Item URL
+					.col-xs-12.col-sm-10
+						input#url.form-control(name="url")
+				.form-group
+					label.col-xs-10.col-sm-2.control-label(for="category") Category
+					.col-xs-12.col-sm-4
+						select#category.form-control.input-sm(name="category")
+							option Riser
+							option Limbs
+							option Sight
+							option Rest
+							option Plunger
+							option Stablizer
+							option Case
+							option Finger tab
+							option Bow
+							option Release
+							option Arrows
+				.form-group
+					label.col-xs-10.col-sm-2.control-label(for="style") Style
+					.col-xs-12.col-sm-4
+						select#style.form-control.input-sm(name="style")
+							option Recurve
+							option Compound
+				.form-group
+					label.col-xs-10.col-sm-2.control-label(for="level") Level
+					.col-xs-12.col-sm-4
+						select#level.form-control.input-sm(name="level")
+							option Beginner
+							option Intermediate
+							option Advanced
+				.form-group
+					label.col-xs-10.col-sm-2.control-label(for="price") Price
+					.col-xs-12.col-sm-3
+						input#price.form-control(name="price")
+				button.btn.btn-default.pull-right Add Equipment
+			.col-xs-12.col-md-4
